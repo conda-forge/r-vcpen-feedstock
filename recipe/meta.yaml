@@ -12,7 +12,7 @@ source:
   sha256: 25567c0a175d2d03ccf33815c1a4105029c2a24be81c77438219c59393a5e53d
 
 build:
-  number: 0
+  number: 1
   rpaths:
     - lib/R/lib/
     - lib/
@@ -29,6 +29,7 @@ requirements:
     - {{ compiler('m2w64_cxx') }}      # [win]
     - {{ stdlib('c') }}                # [not win]
     - {{ stdlib('m2w64_c') }}          # [win]
+    - {{ compiler('fortran') }}        # [osx and arm64]
     - {{ posix }}filesystem        # [win]
     - {{ posix }}make
     - {{ posix }}sed               # [win]
@@ -60,6 +61,7 @@ about:
   home: https://cran.r-project.org/package=vcpen
   license: GPL-3.0-or-later
   summary: Method to perform penalized variance component analysis.
+  license_family: GPL3
   license_file:
     - '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'
 
